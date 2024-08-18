@@ -7,6 +7,10 @@
         height: auto;
         padding: 12px;
         position: fixed;
+      @media (min-width: 1921px) {
+        left: 400px;
+        right: 400px;
+      }
       .nav-item {
         padding: 10px 15px;
       }
