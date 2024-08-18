@@ -4,6 +4,7 @@ import { cnpj, cpf } from 'cpf-cnpj-validator'
 import Swal, { SweetAlertResult } from 'sweetalert2'
 import { ErrorResponse } from '../types/commom.types'
 
+
 export class CustomValidations {
   static cpfAndCnpj(controle: AbstractControl) {
     const value = controle.value

@@ -1,5 +1,5 @@
 <app-header />
-<section id="home">
+<section id="home" [class.component-dark-theme]="customizerSettingsService.isDark()" [class.hide-sidebar]="customizerSettingsService.isHideSidebar()">
   <div class="container">
     <div class="display_home">
       <div class="text">
@@ -11,4 +11,5 @@
     </div>
   </div>
 </section>
+<app-services />
 <app-footer />

@@ -1,5 +1,5 @@
 <header
-    class="header-area bg-white border-radius transition container"
+    class="header-area bg-white border-radius transition "
     [class.component-dark-theme]="themeService.isDark()"
     [class.hide-sidebar]="themeService.isHideSidebar()"
     [class.sticky]="isSticky"
@@ -26,7 +26,7 @@
                     <div
                         [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
                     >
-                        <span class="title fw-medium d-block">Choose Language</span>
+                        <span class="title fw-medium d-block">Selecione a linguagem</span>
                         <ul class="menu-body pl-0 mb-0 mt-0 list-unstyled">
                           <li>
                             <button mat-button>
@@ -56,6 +56,7 @@
                 </button>
             </li>
 
+
             <li>
                 <button mat-button [matMenuTriggerFor]="profileMenu" class="profile-menu-btn">
                     <img src="images/admin.png" alt="profile-image">
@@ -69,7 +70,7 @@
                             <img src="images/admin.png" alt="profile-image">
                             <div class="title">
                                 <a routerLink="/my-profile" class="d-inline-block fw-medium">
-                                    Mateo Luca
+                                    Menu exemplo
                                 </a>
                                 <span class="designation d-block text-body">
                                     Admin
@@ -81,28 +82,28 @@
                                 <i class="material-symbols-outlined">
                                     person
                                 </i>
-                                My Profile
+                                Meu Perfil
                                 <a routerLink="/my-profile" class="link-btn d-block position-absolute"></a>
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">
                                     settings
                                 </i>
-                                Settings
+                                Configuração
                                 <a routerLink="/settings" class="link-btn d-block position-absolute"></a>
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">
                                     info
                                 </i>
-                                Support
+                                Suporte
                                 <a routerLink="/settings/connections" class="link-btn d-block position-absolute"></a>
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">
                                     logout
                                 </i>
-                                Logout
+                                Sair
                                 <a routerLink="/authentication/logout" class="link-btn d-block position-absolute"></a>
                             </li>
                         </ul>

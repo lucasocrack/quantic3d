@@ -1,5 +1,6 @@
 :host {
   #home {
+    height: 99vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,14 +14,11 @@
           padding-top: 130px;
           margin-left: auto;
           h3, h1, p {
-          color: #fff!important;
+
           }
         }
       }
     }
-  }
-  #impact {
-    height: 100vh;
   }
   .maintenance-message{
    font-size: 28px;
