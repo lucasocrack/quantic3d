@@ -1,0 +1,117 @@
+<div class="recent-leads-table">
+  <div class="table-responsive">
+    <table [dataSource]="dataSource" mat-table>
+
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th *matHeaderCellDef mat-header-cell>
+          <mat-checkbox
+            (change)="$event ? toggleAllRows() : null"
+            [aria-label]="checkboxLabel()"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+          >
+          </mat-checkbox>
+        </th>
+        <td *matCellDef="let row" mat-cell>
+          <mat-checkbox
+            (change)="$event ? selection.toggle(row) : null"
+            (click)="$event.stopPropagation()"
+            [aria-label]="checkboxLabel(row)"
+            [checked]="selection.isSelected(row)"
+          >
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <!-- Customer Column -->
+      <ng-container matColumnDef="customer">
+        <th *matHeaderCellDef mat-header-cell>
+          Customer
+        </th>
+        <td *matCellDef="let element" mat-cell>
+          <div class="info d-flex align-items-center">
+            <div class="image">
+              <img [src]="element.customer.img" alt="customer-image">
+            </div>
+            <span class="d-block text-black fw-medium">
+                                    {{element.customer.name}}
+                                </span>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th *matHeaderCellDef mat-header-cell>
+          Email
+        </th>
+        <td *matCellDef="let element" mat-cell>
+          {{element.email}}
+        </td>
+      </ng-container>
+
+      <!-- Source Column -->
+      <ng-container matColumnDef="source">
+        <th *matHeaderCellDef mat-header-cell>
+          Source
+        </th>
+        <td *matCellDef="let element" mat-cell>
+          {{element.source}}
+        </td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th *matHeaderCellDef mat-header-cell>
+          Status
+        </th>
+        <td *matCellDef="let element" mat-cell>
+                            <span *ngIf="element.status.new" class="default-badge new d-inline-block">
+                                {{element.status.new}}
+                            </span>
+          <span *ngIf="element.status.inProgress" class="default-badge in-progress d-inline-block">
+                                {{element.status.inProgress}}
+                            </span>
+          <span *ngIf="element.status.won" class="default-badge won d-inline-block">
+                                {{element.status.won}}
+                            </span>
+          <span *ngIf="element.status.lost" class="default-badge lost d-inline-block">
+                                {{element.status.lost}}
+                            </span>
+        </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th *matHeaderCellDef mat-header-cell>
+          Action
+        </th>
+        <td *matCellDef="let element" class="text-body" mat-cell>
+          <div class="action-info">
+            <button mat-button matTooltip="View Lead" matTooltipPosition="above" type="button">
+              <i class="material-symbols-outlined">
+                {{element.action.view}}
+              </i>
+            </button>
+            <button mat-button matTooltip="Edit Lead" matTooltipPosition="above" type="button">
+              <i class="material-symbols-outlined">
+                {{element.action.edit}}
+              </i>
+            </button>
+            <button mat-button matTooltip="Delete" matTooltipPosition="above" type="button">
+              <i class="material-symbols-outlined">
+                {{element.action.delete}}
+              </i>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+    </table>
+  </div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

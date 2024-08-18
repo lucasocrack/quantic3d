@@ -1,0 +1,103 @@
+<form [formGroup]="form">
+  <div class="row">
+    @for(question of questions; track $index) {
+      @switch (question.type) {
+        @case (types.PASSWORD) {
+          <app-password-input
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+          ></app-password-input>
+        }
+        @case (types.AUTOCOMPLETE) {
+          <app-autocomplete-input
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+            [options]="autocompleteServices[question.key]"
+          ></app-autocomplete-input>
+        }
+        @case (types.SELECT) {
+          <app-select-input
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+            [options]="question.options!"
+          ></app-select-input>
+        }
+        @case (types.MULTI_SELECT) {
+          <app-multi-select-input
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+            [options]="question.options!"
+          ></app-multi-select-input>
+        }
+        @case (types.TEXTAREA) {
+          <app-textarea-input
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+          ></app-textarea-input>
+        }
+        @case (types.RADIO) {
+          <app-radio-input
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+            [options]="question.options!"
+          ></app-radio-input>
+        }
+        @case (types.CHECKBOX) {
+          <app-checkbox-input
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+          ></app-checkbox-input>
+        }
+        @case (types.TOGGLE) {
+          <app-toggle-input
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+          ></app-toggle-input>
+        }
+        @case (types.FILE_UPLOAD) {
+          <app-file-uploader
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+          ></app-file-uploader>
+        }
+        @case (types.MULTI_FILE_UPLOAD) {
+          <app-file-uploader
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+          ></app-file-uploader>
+        }
+        @case (types.DATEPICKER) {
+          <app-datepicker
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+          ></app-datepicker>
+        }
+        @case (types.TIMEPICKER) {
+          <app-timepicker
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+          ></app-timepicker>
+        }
+        @default {
+          <app-basic-input
+            [question]="question"
+            [control]="form.get(question.key)!"
+            [class]="question.class || 'col-12'"
+          ></app-basic-input>
+        }
+      }
+    }
+  </div>
+</form>

@@ -1,0 +1,21 @@
+<div class="form-field w-100" [class]="inputQuestion.inputClass">
+  <div class="form-group">
+    <div
+      class="toggle"
+    >
+      <mat-slide-toggle
+        [id]="inputQuestion.key"
+        [formControl]="formControl"
+        [matTooltip]="inputQuestion.inputTooltip || ''"
+        [class.error]="formControl.errors && (formControl.touched || formControl.dirty)"
+      >{{inputQuestion.label}}</mat-slide-toggle>
+    </div>
+    <div class="error-wrapper">
+      @if (formControl.errors && (formControl.touched || formControl.dirty)) {
+        <mat-error>
+          {{ formControl.errors | formError}}
+        </mat-error>
+      }
+    </div>
+  </div>
+</div>

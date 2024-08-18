@@ -1,0 +1,130 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+  <h5 class="mb-0">
+    Users List
+  </h5>
+  <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+    <li class="breadcrumb-item position-relative">
+      <a class="d-inline-block position-relative" routerLink="/">
+        <i class="ri-home-8-line"></i>
+        Dashboard
+      </a>
+    </li>
+    <li class="breadcrumb-item position-relative">
+      Users
+    </li>
+    <li class="breadcrumb-item position-relative">
+      Users List
+    </li>
+  </ol>
+</div>
+
+<!-- Users -->
+<mat-card
+  class="default-card users-card mb-25 border-radius bg-white border-none d-block"
+>
+  <mat-card-header>
+    <mat-card-title>
+      <form class="search-box position-relative">
+        <i class="material-symbols-outlined">
+          search
+        </i>
+        <input #input (keyup)="applyFilter($event)" class="input-search d-block w-100 border-none outline-0" placeholder="Search user..." type="text">
+      </form>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <a class="add-new-btn" mat-button routerLink="/users/add-user">
+        + Add New User
+      </a>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="users-table">
+      <div class="table-responsive">
+        <table [dataSource]="dataSource" mat-table>
+
+          <!-- Email Column -->
+          <ng-container matColumnDef="email">
+            <th *matHeaderCellDef mat-header-cell>
+              Email
+            </th>
+            <td *matCellDef="let element" mat-cell>
+              {{element.email}}
+            </td>
+          </ng-container>
+
+          <!-- Username Column -->
+          <ng-container matColumnDef="username">
+            <th *matHeaderCellDef mat-header-cell>
+              Nome de usuário
+            </th>
+            <td *matCellDef="let element" mat-cell>
+              {{element.username}}
+            </td>
+          </ng-container>
+
+          <!-- Role Column -->
+          <ng-container matColumnDef="role">
+            <th *matHeaderCellDef mat-header-cell>
+              Role
+            </th>
+            <td *matCellDef="let element" mat-cell>
+              {{element.role}}
+            </td>
+          </ng-container>
+
+          <!-- CPF Column -->
+          <ng-container matColumnDef="cpf">
+            <th *matHeaderCellDef mat-header-cell>
+              CPF
+            </th>
+            <td *matCellDef="let element" mat-cell>
+              {{element.cpf}}
+            </td>
+          </ng-container>
+
+          <!-- CPF Column -->
+          <ng-container matColumnDef="createdAt">
+            <th *matHeaderCellDef mat-header-cell>
+              Criado em
+            </th>
+            <td *matCellDef="let element" mat-cell>
+              {{element.createdAt | date}}
+            </td>
+          </ng-container>
+
+          <!-- Action Column -->
+          <ng-container matColumnDef="action">
+            <th *matHeaderCellDef mat-header-cell>
+              Action
+            </th>
+            <td *matCellDef="let element" mat-cell>
+              <div class="action-info">
+                <button mat-button matTooltip="View" matTooltipPosition="above" type="button">
+                  <i class="material-symbols-outlined">
+                    {{element.action.view}}
+                  </i>
+                </button>
+                <button mat-button matTooltip="Delete" matTooltipPosition="above" type="button">
+                  <i class="material-symbols-outlined">
+                    {{element.action.delete}}
+                  </i>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+          <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr *matNoDataRow class="mat-row">
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+
+        </table>
+      </div>
+      <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

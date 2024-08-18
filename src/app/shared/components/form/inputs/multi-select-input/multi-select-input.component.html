@@ -1,0 +1,71 @@
+<div class="form-field w-100" [class]="inputQuestion.inputClass">
+  <div class="form-group">
+    @if(inputQuestion.label){
+      <label class="main-label d-block lh-1 text-black" [for]="inputQuestion.key">
+        {{inputQuestion.label}}
+      </label>
+    }
+    <mat-form-field
+      class="mat-form"
+      [class.end]="inputQuestion.endIcon"
+      [class.start]="inputQuestion.startIcon"
+    >
+      @if(inputQuestion.placeholder){
+        <mat-label>
+          {{ inputQuestion.placeholder }}
+        </mat-label>
+      }
+      @if(inputQuestion.startIcon) {
+        <div
+          class="icon-start"
+          [matTooltip]="inputQuestion.startIcon.tooltip || ''"
+          [style.color]="inputQuestion.startIcon.color || 'var(--blackColor)'"
+        >
+          <i class="material-symbols-outlined">
+            {{inputQuestion.startIcon.icon}}
+          </i>
+        </div>
+      }
+      <mat-select
+        [id]="inputQuestion.key"
+        [formControl]="formControl"
+        [errorStateMatcher]="matcher"
+        [matTooltip]="inputQuestion.inputTooltip || ''"
+        [class.error]="formControl.errors && (formControl.touched || formControl.dirty)"
+        multiple
+      >
+        @if (inputQuestion.triggerText) {
+          <mat-select-trigger>
+            {{formControl.value?.[0] || ''}}
+            @if ((formControl.value?.length || 0) > 1) {
+              <span>
+                    (+{{(formControl.value?.length || 0) - 1}} {{formControl.value?.length === 2 ? 'other' : 'others'}})
+                </span>
+            }
+          </mat-select-trigger>
+        }
+        @for (option of inputQuestion.options | async; track option.value) {
+          <mat-option [value]="option.value">{{option.name}}</mat-option>
+        }
+      </mat-select>
+      @if(inputQuestion.endIcon) {
+        <div
+          class="icon-end"
+          [matTooltip]="inputQuestion.endIcon.tooltip || ''"
+          [style.color]="inputQuestion.endIcon.color"
+        >
+          <i class="material-symbols-outlined">
+            {{inputQuestion.endIcon.icon}}
+          </i>
+        </div>
+      }
+    </mat-form-field>
+    <div class="error-wrapper">
+      @if (formControl.errors && (formControl.touched || formControl.dirty)) {
+        <mat-error>
+          {{ formControl.errors | formError}}
+        </mat-error>
+      }
+    </div>
+  </div>
+</div>

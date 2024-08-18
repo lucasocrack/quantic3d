@@ -1,0 +1,99 @@
+.recent-leads-table {
+  .mat-mdc-table {
+    .mat-mdc-header-cell {
+      padding: {
+        top: 18px;
+        bottom: 18px;
+      };
+      &:last-child {
+        text-align: right;
+      }
+    }
+    .mat-mdc-cell {
+      padding: {
+        top: 16.5px;
+        bottom: 16.5px;
+      };
+      &:last-child {
+        text-align: right;
+      }
+    }
+    .info {
+      .image {
+        width: 50px;
+        line-height: .01;
+        margin-right: 12px;
+
+        img {
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .recent-leads-table {
+    .mat-mdc-paginator {
+      padding: {
+        top: 15px;
+        left: 20px;
+        right: 20px;
+      };
+    }
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .recent-leads-table {
+    .mat-mdc-table {
+      .mat-mdc-checkbox {
+        top: -1px;
+      }
+      .mat-mdc-header-cell {
+        padding: {
+          top: 10px;
+          bottom: 10px;
+        };
+      }
+      .mat-mdc-cell {
+        padding: {
+          top: 10px;
+          bottom: 10px;
+        };
+      }
+      .info {
+        .image {
+          width: 40px;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+  ::ng-deep {
+    .recent-leads-table {
+      .mat-mdc-paginator {
+        padding: {
+          top: 10px;
+          left: 15px;
+          right: 15px;
+        };
+      }
+    }
+  }
+
+}
+
+@media only screen and (min-width : 576px) and (max-width : 767px) {
+  ::ng-deep {
+    .recent-leads-table {
+      .mat-mdc-paginator {
+        padding: {
+          left: 20px;
+          right: 20px;
+        };
+      }
+    }
+  }
+
+}

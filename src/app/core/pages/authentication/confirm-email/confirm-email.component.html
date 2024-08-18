@@ -1,0 +1,68 @@
+<div class="confirm-email-area">
+  <div class="d-table">
+    <div class="d-table-cell">
+      <div
+        class="default-form ml-auto mr-auto border-radius bg-white"
+      >
+        @if(isLoading()) {
+          <div class="loader-wrapper">
+            <div class="loader-spinner main"></div>
+          </div>
+        } @else {
+          @if(isActivated()) {
+            <div class="title text-center">
+              <h3>
+                Bem-vindo ao Default
+              </h3>
+              <p class="ml-auto mr-auto">
+                Seu e-mail foi verificado! Sua conta agora está protegida contra atividades indesejadas.
+              </p>
+            </div>
+            <div class="admin text-center">
+              <div class="logo position-relative text-success rounded-circle">
+                <i class="material-symbols-outlined">
+                  done
+                </i>
+              </div>
+              <span class="d-block fw-medium">
+                Seu email foi verificado <span class="text-success">Sucesso!</span>
+              </span>
+            </div>
+            <a class="btn" mat-button routerLink="/authentication">
+              Fazer login
+            </a>
+          } @else {
+            <div class="title text-center">
+              <h3>
+                Token expirado!
+              </h3>
+              <p class="ml-auto mr-auto">
+                Favor inserir novamente seu email para que possamos enviar um link válido.
+              </p>
+            </div>
+            <app-basic-input
+              [control]="this.email"
+              [question]="emailQuestion"
+            ></app-basic-input>
+            <a
+              class="btn"
+              mat-button
+              [disabled]="email.invalid || isLoadingSend()"
+              (click)="resendActivation()"
+              (keydown.enter)="ngOnInit()"
+            >
+              @if(isLoadingSend()) {
+                <div class="loader-wrapper">
+                  <div class="loader-spinner"></div>
+                </div>
+              } @else {
+                Fazer login
+              }
+            </a>
+          }
+        }
+
+      </div>
+    </div>
+  </div>
+</div>

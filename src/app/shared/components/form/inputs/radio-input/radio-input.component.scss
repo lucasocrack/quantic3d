@@ -1,0 +1,15 @@
+.radio-group {
+  .radio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    &.radio-row {
+      flex-direction: row;
+    }
+
+    &.radio-column {
+      flex-direction: column;
+    }
+  }
+}

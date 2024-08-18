@@ -1,0 +1,85 @@
+<div class="sign-up-area">
+  <div class="d-table">
+    <div class="d-table-cell">
+      <div
+        [class.component-dark-theme]="themeService.isDark()"
+        class="default-form ml-auto mr-auto border-radius bg-white"
+      >
+        <div class="title text-center">
+          <h3>
+            Cadastrar
+          </h3>
+          <p class="text-black">
+            Já tem uma conta? <a class="text-default" routerLink="/authentication">Entrar</a>
+          </p>
+        </div>
+        <form [formGroup]="authForm">
+          <div class="row">
+            <app-basic-input
+              [control]="this.authForm.controls.username"
+              [question]="usernameQuestion"
+            ></app-basic-input>
+            <app-basic-input
+              [control]="this.authForm.controls.email"
+              [question]="emailQuestion"
+            ></app-basic-input>
+            <app-basic-input
+              [control]="this.authForm.controls.cpfCnpj"
+              [question]="cpfCnpjQuestion"
+            ></app-basic-input>
+            <app-password-input
+              [control]="this.authForm.controls.password"
+              [question]="passwordQuestion"
+            ></app-password-input>
+            <div class="accept-terms">
+              <app-checkbox-input
+                [control]="this.authForm.controls.acceptTerms"
+                [question]="acceptTermsQuestion"
+              ></app-checkbox-input>
+              <span>
+                Eu li e concordo com os <a class="text-default" href="javascript:void(0);">Termos e Condições</a>
+              </span>
+            </div>
+          </div>
+          <button
+            (click)="onSubmit()"
+            (keydown.enter)="onSubmit()"
+            [disabled]="authForm.invalid || isLoading()"
+            class="btn"
+            mat-button
+            type="submit"
+          >
+            @if(isLoading()) {
+              <div class="loader-wrapper">
+                <div class="loader-spinner"></div>
+              </div>
+            } @else {
+              Cadastrar
+            }
+          </button>
+          <div class="signin-with-socials text-center">
+            <div class="or position-relative">
+              <span class="d-inline-block">
+                ou cadastre-se com
+              </span>
+            </div>
+            <div class="socials">
+              <button class="facebook" mat-button type="button">
+                <i class="ri-facebook-fill"></i>
+              </button>
+              <button class="twitter" mat-button type="button">
+                <i class="ri-twitter-x-fill"></i>
+              </button>
+              <button class="google" mat-button type="button">
+                <i class="ri-google-fill"></i>
+              </button>
+              <button class="linkedin" mat-button type="button">
+                <i class="ri-linkedin-fill"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

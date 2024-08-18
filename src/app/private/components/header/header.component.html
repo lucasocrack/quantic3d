@@ -1,0 +1,263 @@
+<header
+  [class.component-dark-theme]="themeService.isDark()"
+  [class.hide-sidebar]="themeService.isHideSidebar()"
+  [ngClass]="{'active': isSidebarToggled, 'sticky': isSticky}"
+  class="header-area bg-white border-radius transition"
+>
+  <div class="d-md-flex align-items-center justify-content-between">
+    <div class="header-left-side d-flex align-items-center">
+      <div
+        (click)="toggle()"
+        (keyup.enter)="toggle()"
+        [ngClass]="{'active': isSidebarToggled}"
+        class="burger-menu cursor-pointer transition d-xl-none"
+        tabindex="0"
+      >
+        <span class="top-bar d-block bg-black transition"></span>
+        <span class="middle-bar d-block bg-black transition"></span>
+        <span class="bottom-bar d-block bg-black transition"></span>
+      </div>
+      <form class="search-box position-relative">
+        <i class="material-symbols-outlined">
+          search
+        </i>
+        <input class="input-search d-block w-100 border-none outline-0" placeholder="Search here..." type="text">
+      </form>
+    </div>
+    <ul class="header-right-side d-flex align-items-center mt-0 mb-0 pl-0 list-unstyled">
+      <li>
+        <button [matMenuTriggerFor]="languageMenu" class="language-menu-btn" mat-icon-button>
+            <i class="material-symbols-outlined">
+                translate
+            </i>
+        </button>
+        <mat-menu #languageMenu="matMenu" class="language-menu-dropdown" xPosition="before">
+          <div
+            [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
+          >
+            <span class="title fw-medium d-block">Choose Language</span>
+            <ul class="menu-body pl-0 mb-0 mt-0 list-unstyled">
+              <li>
+                <button mat-button>
+                  <img alt="flag" src="images/flags/brl.png">
+                  Português (Brasil)
+                </button>
+              </li>
+              <li>
+                <button mat-button>
+                  <img alt="flag" src="images/flags/usa.png">
+                  English
+                </button>
+              </li>
+            </ul>
+          </div>
+        </mat-menu>
+      </li>
+        <li>
+          <button
+            (click)="toggleTheme()"
+            class="dark-swtich-btn"
+            mat-button
+          >
+            <i class="material-symbols-outlined">
+              dark_mode
+            </i>
+          </button>
+        </li>
+        <li>
+          <a class="calendar-menu-btn p-0" mat-icon-button routerLink="/calendar">
+            <i class="material-symbols-outlined">
+              calendar_today
+            </i>
+          </a>
+        </li>
+        <li>
+          <button [matMenuTriggerFor]="messagesMenu" class="messages-menu-btn p-0" mat-icon-button>
+            <i class="material-symbols-outlined">
+              mail
+            </i>
+            <span class="default-badge">
+              5
+            </span>
+          </button>
+          <mat-menu #messagesMenu="matMenu" class="messages-menu-dropdown" xPosition="before">
+            <div
+              [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
+            >
+              <div class="title d-flex align-items-center justify-content-between">
+                <span class="fw-medium">
+                  Messages
+                  <span class="text-body fw-normal">(05)</span>
+                </span>
+                <a class="link-btn text-default" routerLink="/chat">
+                  Mark all as read
+                </a>
+              </div>
+              <ul class="menu-body pl-0 mt-0 list-unstyled">
+                <li class="position-relative" routerLink="/chat">
+                  <img alt="user" class="rounded-circle position-absolute" height="44" src="images/users/user1.jpg" width="44">
+                  <span class="sub-title d-block fw-medium">
+                    Jacob Liwiski <span class="text-body fw-normal">35 mins ago</span>
+                  </span>
+                  <span class="message d-block text-body">
+                    Hey Victor! Could you please...
+                  </span>
+                  <span class="unread d-inline-block rounded-circle bg-default position-absolute"></span>
+                </li>
+                <li class="position-relative" routerLink="/chat">
+                  <img alt="user" class="rounded-circle position-absolute" height="44" src="images/users/user2.jpg" width="44">
+                  <span class="sub-title d-block fw-medium">
+                    Angela Carter <span class="text-body fw-normal">1 day ago</span>
+                  </span>
+                  <span class="message d-block text-body">
+                    How are you Angela? Would you please...
+                  </span>
+                </li>
+                <li class="position-relative" routerLink="/chat">
+                  <img alt="user" class="rounded-circle position-absolute" height="44" src="images/users/user3.jpg" width="44">
+                  <span class="sub-title d-block fw-medium">
+                    Brad Traversy  <span class="text-body fw-normal">2 days ago</span>
+                  </span>
+                  <span class="message d-block text-body">
+                    Hey Brad Traversy! Could you please...
+                  </span>
+                </li>
+              </ul>
+              <div class="menu-footer text-center">
+                <a class="link-btn text-default d-inline-block fw-medium" routerLink="/chat">
+                  View All Messages
+                </a>
+              </div>
+            </div>
+          </mat-menu>
+        </li>
+        <li>
+          <button [matMenuTriggerFor]="notificationsMenu" class="notifications-menu-btn p-0" mat-icon-button>
+            <i class="material-symbols-outlined">
+              notifications
+            </i>
+            <span class="default-badge">
+              3
+            </span>
+          </button>
+          <mat-menu #notificationsMenu="matMenu" class="notifications-menu-dropdown" xPosition="before">
+            <div
+              [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
+            >
+              <div class="title d-flex align-items-center justify-content-between">
+                <span class="fw-medium">
+                  Notifications
+                  <span class="text-body fw-normal">(03)</span>
+                </span>
+                <a class="link-btn text-default" routerLink="/notifications">
+                    Clear All
+                </a>
+              </div>
+              <ul class="menu-body pl-0 mt-0 list-unstyled">
+                <li class="position-relative" routerLink="/notifications">
+                  <div class="icon rounded-circle position-absolute text-center transition">
+                    <i class="material-symbols-outlined">
+                      sms
+                    </i>
+                  </div>
+                  <span class="sub-title d-block">
+                    You have requested to <strong class="fw-medium">withdrawal</strong>
+                  </span>
+                  <span class="time d-block text-body">
+                    2 hrs ago
+                  </span>
+                  <span class="unread d-inline-block rounded-circle bg-default position-absolute"></span>
+                </li>
+                <li class="position-relative" routerLink="/notifications">
+                  <div class="icon rounded-circle position-absolute text-center transition">
+                    <i class="material-symbols-outlined">
+                      person
+                    </i>
+                  </div>
+                  <span class="sub-title d-block">
+                    <strong class="fw-medium">A new user</strong> added in Default
+                  </span>
+                  <span class="time d-block text-body">
+                    3 hrs ago
+                  </span>
+                  <span class="unread d-inline-block rounded-circle bg-default position-absolute"></span>
+                </li>
+                <li class="position-relative" routerLink="/notifications">
+                  <div class="icon rounded-circle position-absolute text-center transition">
+                    <i class="material-symbols-outlined">
+                        mark_email_unread
+                    </i>
+                  </div>
+                  <span class="sub-title d-block">
+                    You have requested to <strong class="fw-medium">withdrawal</strong>
+                  </span>
+                  <span class="time d-block text-body">
+                    1 day ago
+                  </span>
+                </li>
+              </ul>
+              <div class="menu-footer text-center">
+                <a class="link-btn text-default d-inline-block fw-medium" routerLink="/notifications">
+                  See All Notifications
+                </a>
+              </div>
+            </div>
+          </mat-menu>
+        </li>
+        <li>
+          <button [matMenuTriggerFor]="profileMenu" class="profile-menu-btn" mat-button>
+              <img alt="profile-image" src="images/admin.png">
+              <span class="status d-inline-block rounded-circle position-absolute"></span>
+          </button>
+          <mat-menu #profileMenu="matMenu" class="profile-menu-dropdown" xPosition="before">
+            <div
+              [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
+            >
+              <div class="menu-header d-flex align-items-center">
+                <img alt="profile-image" src="images/admin.png">
+                <div class="title">
+                  <a class="d-inline-block fw-medium" routerLink="/my-profile">
+                    Mateo Luca
+                  </a>
+                  <span class="designation d-block text-body">
+                    Admin
+                  </span>
+                </div>
+              </div>
+              <ul class="menu-body pl-0 mb-0 mt-0 list-unstyled">
+                <li class="position-relative transition fw-medium" routerLink="/my-profile">
+                  <i class="material-symbols-outlined">
+                    person
+                  </i>
+                  My Profile
+                </li>
+                <li class="position-relative transition fw-medium" routerLink="/settings">
+                  <i class="material-symbols-outlined">
+                    settings
+                  </i>
+                  Settings
+                </li>
+                <li class="position-relative transition fw-medium" routerLink="/settings/connections">
+                  <i class="material-symbols-outlined">
+                    info
+                  </i>
+                  Support
+                </li>
+                <li
+                  (click)="logout()"
+                  (keydown.enter)="logout()"
+                  class="position-relative transition fw-medium"
+                  tabindex="0"
+                >
+                  <i class="material-symbols-outlined">
+                    logout
+                  </i>
+                  Logout
+                </li>
+              </ul>
+            </div>
+          </mat-menu>
+        </li>
+    </ul>
+  </div>
+</header>

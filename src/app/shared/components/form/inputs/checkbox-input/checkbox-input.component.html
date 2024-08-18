@@ -1,0 +1,14 @@
+<div class="form-field w-100" [class]="inputQuestion.inputClass">
+  <div class="form-group">
+    <div
+      class="checkbox"
+    >
+      <mat-checkbox
+        [id]="inputQuestion.key"
+        [formControl]="formControl"
+        [matTooltip]="inputQuestion.inputTooltip || ''"
+        [class.error]="formControl.errors && (formControl.touched || formControl.dirty)"
+      >{{inputQuestion.label}}</mat-checkbox>
+    </div>
+  </div>
+</div>
