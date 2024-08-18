@@ -12,14 +12,20 @@
     flex-wrap: wrap;
     justify-content: space-around;
     li {
-      margin-bottom: 15px;
-      width: 31%;
+      margin-bottom: 40px;
+      width: 30%;
       box-sizing: border-box;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
-      padding: 20px; /* Add padding */
+      padding-block: 40px;
+      padding-inline: 20px;
       border-radius: 10px; /* Rounded corners */
       background-color: #fff; /* White background */
       text-align: center; /* Center align text and icon */
+      transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+      &:hover {
+        transform: scale(1.05); /* Slightly increase the size */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+      }
       i {
         font-size: 2em; /* Adjust icon size */
         margin-bottom: 10px; /* Space between icon and title */
@@ -30,6 +36,31 @@
       }
       p {
         margin: 5px 0 0;
+      }
+    }
+  }
+
+  &.component-dark-theme {
+    ul {
+      li {
+        background-color: #444; /* Dark background for cards */
+        color: #fff; /* Light text color for cards */
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Light shadow effect */
+        &:hover {
+          box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Increase shadow on hover */
+        }
+      }
+    }
+    h2, h3, p {
+      color: #fff !important; /* Change text color to white for dark theme */
+    }
+  }
+
+  @media (max-width: 768px) {
+    ul {
+      li {
+        width: 70%;
+        padding-block: 25px;
       }
     }
   }
