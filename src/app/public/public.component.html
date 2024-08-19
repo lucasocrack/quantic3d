@@ -1,15 +1,3 @@
 <app-header />
-<section id="home" [class.component-dark-theme]="customizerSettingsService.isDark()" [class.hide-sidebar]="customizerSettingsService.isHideSidebar()">
-  <div class="container">
-    <div class="display_home">
-      <div class="text">
-        <h3 class="mb-0">Bem vindo a</h3>
-        <h1 class="public-title">QUANTIC 3D</h1>
-        <p class="public-text">A empresa que imprime seus sonhos em 3D</p>
-        <p class="maintenance-message">Nosso site está em atualização. Por favor, volte mais tarde.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<app-services />
+<router-outlet></router-outlet>
 <app-footer />

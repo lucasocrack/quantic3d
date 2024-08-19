@@ -1,0 +1,9 @@
+footer {
+  background: black;
+  p, span, mat-icon, a {
+    color: white !important;
+  }
+  a:hover {
+    color: var(--quanticColor) !important;
+  }
+}

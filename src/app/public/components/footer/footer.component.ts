@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CustomizerSettingsService } from '../../../shared/components/customizer-settings/customizer-settings.service';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, MatIcon],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
