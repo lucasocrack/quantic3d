@@ -14,6 +14,7 @@ import { CustomizerSettingsService } from 'src/app/shared/components/customizer-
 })
 export class FooterComponent implements OnInit {
   isToggled = false;
+  logoSrc: string = '';
 
   constructor(
       private el: ElementRef,
@@ -23,6 +24,7 @@ export class FooterComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
+    this.logoSrc = 'images/whatsapp.svg';
     setTimeout(() => {
       const quickMessage = this.el.nativeElement.querySelector('.quick-message');
       if (quickMessage) {
