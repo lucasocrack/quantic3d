@@ -13,7 +13,7 @@ export const routes: Routes = [
     children: publicRoutes,
   },
   {
-    path: 'panel',
+    path: 'painel',
     component: PrivateComponent,
     children: privateRoutes,
   },

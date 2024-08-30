@@ -5,11 +5,12 @@ import { SidebarService } from '../../../private/components/sidebar/sidebar.serv
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CustomizerSettingsService } from '../../../shared/components/customizer-settings/customizer-settings.service';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink, RouterLinkActive],
+  imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink, RouterLinkActive, MatIcon],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

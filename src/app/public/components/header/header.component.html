@@ -12,8 +12,8 @@
       </a>
       <ul class="header-right-side d-flex align-items-center mt-0 mb-0 pl-0 list-unstyled">
         <li class="nav-item"><a routerLink="/home">Home</a></li>
-        <li class="nav-item"><a routerLink="/contact">Contato</a></li>
-
+        <li class="nav-item"><a routerLink="/products">Produtos</a></li>
+        <li class="nav-item"><a routerLink="/about">Sobre</a></li>
 
             <li>
                 <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="language-menu-btn">
@@ -54,61 +54,11 @@
                     </i>
                 </button>
             </li>
-
-
-            <li>
-                <button mat-button [matMenuTriggerFor]="profileMenu" class="profile-menu-btn">
-                    <img src="images/admin.png" alt="profile-image">
-                    <span class="status d-inline-block rounded-circle position-absolute"></span>
-                </button>
-                <mat-menu class="profile-menu-dropdown" #profileMenu="matMenu" xPosition="before">
-                    <div
-                        [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
-                    >
-                        <div class="menu-header d-flex align-items-center">
-                            <img src="images/admin.png" alt="profile-image">
-                            <div class="title">
-                                <a routerLink="/my-profile" class="d-inline-block fw-medium">
-                                    Menu exemplo
-                                </a>
-                                <span class="designation d-block text-body">
-                                    Admin
-                                </span>
-                            </div>
-                        </div>
-                        <ul class="menu-body pl-0 mb-0 mt-0 list-unstyled">
-                            <li class="position-relative transition fw-medium">
-                                <i class="material-symbols-outlined">
-                                    person
-                                </i>
-                                Meu Perfil
-                                <a routerLink="/my-profile" class="link-btn d-block position-absolute"></a>
-                            </li>
-                            <li class="position-relative transition fw-medium">
-                                <i class="material-symbols-outlined">
-                                    settings
-                                </i>
-                                Configuração
-                                <a routerLink="/settings" class="link-btn d-block position-absolute"></a>
-                            </li>
-                            <li class="position-relative transition fw-medium">
-                                <i class="material-symbols-outlined">
-                                    info
-                                </i>
-                                Suporte
-                                <a routerLink="/settings/connections" class="link-btn d-block position-absolute"></a>
-                            </li>
-                            <li class="position-relative transition fw-medium">
-                                <i class="material-symbols-outlined">
-                                    logout
-                                </i>
-                                Sair
-                                <a routerLink="/authentication/logout" class="link-btn d-block position-absolute"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </mat-menu>
-            </li>
+        <li class="nav-item">
+          <a routerLink="/painel">
+            <mat-icon>login</mat-icon>
+          </a>
+        </li>
         </ul>
     </div>
 </header>
