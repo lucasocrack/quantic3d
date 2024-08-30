@@ -1,64 +1,49 @@
 <header
-    class="header-area bg-white border-radius transition "
-    [class.component-dark-theme]="themeService.isDark()"
-    [class.hide-sidebar]="themeService.isHideSidebar()"
-    [class.sticky]="isSticky"
+  class="header-area bg-white border-radius transition"
+  [class.component-dark-theme]="themeService.isDark()"
+  [class.hide-sidebar]="themeService.isHideSidebar()"
+  [class.sticky]="isSticky"
 >
-    <div class="d-md-flex align-items-center justify-content-between container-xl">
-
-
-      <a routerLink="/home" class="logo">
-        <img [src]="logoSrc" alt="Quantic 3D" width="180px">
-      </a>
-      <ul class="header-right-side d-flex align-items-center mt-0 mb-0 pl-0 list-unstyled">
-        <li class="nav-item"><a routerLink="/home">Home</a></li>
-        <li class="nav-item"><a routerLink="/products">Produtos</a></li>
-        <li class="nav-item"><a routerLink="/about">Sobre</a></li>
-
-            <li>
-                <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="language-menu-btn">
-                    <i class="material-symbols-outlined">
-                        translate
-                    </i>
+  <div class="d-md-flex align-items-center justify-content-between container-xl">
+    <a routerLink="/home" class="logo">
+      <img [src]="logoSrc" alt="Quantic 3D" width="180px">
+    </a>
+    <ul class="header-right-side d-flex align-items-center mt-0 mb-0 pl-0 list-unstyled">
+      <li class="nav-item"><a routerLink="/home">Home</a></li>
+      <li class="nav-item"><a routerLink="/products">Produtos</a></li>
+      <li class="nav-item"><a routerLink="/about">Sobre</a></li>
+      <li>
+        <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="language-menu-btn">
+          <i class="material-symbols-outlined">translate</i>
+        </button>
+        <mat-menu class="language-menu-dropdown" #languageMenu="matMenu" xPosition="before">
+          <div [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()">
+            <span class="title fw-medium d-block">Selecione a linguagem</span>
+            <ul class="menu-body pl-0 mb-0 mt-0 list-unstyled">
+              <li>
+                <button mat-button>
+                  <img src="images/flags/brl.png" alt="flag"> Português (BR)
                 </button>
-                <mat-menu class="language-menu-dropdown" #languageMenu="matMenu" xPosition="before">
-                    <div
-                        [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
-                    >
-                        <span class="title fw-medium d-block">Selecione a linguagem</span>
-                        <ul class="menu-body pl-0 mb-0 mt-0 list-unstyled">
-                          <li>
-                            <button mat-button>
-                              <img src="images/flags/brl.png" alt="flag">
-                              Português (BR)
-                            </button>
-                          </li>
-                          <li>
-                            <button mat-button>
-                              <img src="images/flags/usa.png" alt="flag">
-                                English
-                              </button>
-                          </li>
-                      </ul>
-                  </div>
-                </mat-menu>
-            </li>
-            <li>
-                <button
-                    mat-button
-                    class="dark-swtich-btn"
-                    (click)="toggleTheme()"
-                >
-                    <i class="material-symbols-outlined">
-                        dark_mode
-                    </i>
+              </li>
+              <li>
+                <button mat-button>
+                  <img src="images/flags/usa.png" alt="flag"> English
                 </button>
-            </li>
-        <li class="nav-item">
-          <a routerLink="/painel">
-            <mat-icon>login</mat-icon>
-          </a>
-        </li>
-        </ul>
-    </div>
+              </li>
+            </ul>
+          </div>
+        </mat-menu>
+      </li>
+      <li>
+        <button mat-button class="dark-swtich-btn" (click)="toggleTheme()">
+          <i class="material-symbols-outlined">dark_mode</i>
+        </button>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/painel">
+          <mat-icon>login</mat-icon>
+        </a>
+      </li>
+    </ul>
+  </div>
 </header>
