@@ -1,0 +1,13 @@
+<section class="products">
+  <div class="container">
+    <div class="products-list">
+      <div class="product" *ngFor="let product of products">
+        <img [src]="product.image" alt="product.name">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p>{{ product.price | currency }}</p>
+        <button (click)="addToCart(product)">Adicionar ao carrinho</button>
+      </div>
+    </div>
+  </div>
+</section>
