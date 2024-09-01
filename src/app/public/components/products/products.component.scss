@@ -1,3 +1,7 @@
+section {
+  margin-bottom: 80px;
+}
+
 // Filter Sidebar Card
 .mat-mdc-card {
   &.daxa-card {
@@ -47,18 +51,6 @@
 
               .number {
                 font-size: 14px;
-              }
-              .ratings {
-                i {
-                  color: var(--warningColor);
-                  font-size: var(--fontSize);
-                  margin-right: 2px;
-                }
-                span {
-                  top: 1px;
-                  font-size: 14px;
-                  margin-left: 1px;
-                }
               }
               &:last-child {
                 margin-bottom: 0;
@@ -420,18 +412,6 @@
               }
             }
           }
-          .ratings {
-            i {
-              color: var(--warningColor);
-              font-size: var(--fontSize);
-              margin-right: 2px;
-            }
-            span {
-              top: 1px;
-              font-size: 14px;
-              margin-left: 1px;
-            }
-          }
           .mat-mdc-button {
             margin-top: 18px;
           }
@@ -587,20 +567,6 @@
               padding-right: 0;
 
               li {
-                .ratings {
-                  i {
-                    margin: {
-                      right: 0;
-                      left: 2px;
-                    };
-                  }
-                  span {
-                    margin: {
-                      left: 0;
-                      right: 1px;
-                    };
-                  }
-                }
               }
               &.colors {
                 li {
@@ -669,20 +635,6 @@
                 }
               }
             }
-            .ratings {
-              i {
-                margin: {
-                  right: 0;
-                  left: 2px;
-                };
-              }
-              span {
-                margin: {
-                  left: 0;
-                  right: 1px;
-                };
-              }
-            }
           }
         }
       }
@@ -736,14 +688,6 @@
 
                 .number {
                   font-size: 14px;
-                }
-                .ratings {
-                  i {
-                    font-size: 14px;
-                  }
-                  span {
-                    font-size: 13px;
-                  }
                 }
               }
               &.colors {
@@ -815,11 +759,6 @@
                 &:nth-child(1) {
                   font-size: 16px;
                 }
-              }
-            }
-            .ratings {
-              i {
-                font-size: 15px;
               }
             }
             .mat-mdc-button {

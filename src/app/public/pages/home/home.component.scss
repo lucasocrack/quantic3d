@@ -1,22 +1,14 @@
 :host {
   #home {
-    height: 75vh;
+    height: 72vh;
     display: flex;
     justify-content: center;
     align-items: center;
     .container {
       .display_home {
-        margin: 200px 20px;
+        margin: 0px 20px;
         // background: url('public/images/cm/banner.png') no-repeat center center;
         background-size: cover;
-        height: 500px;
-        .text{
-          padding-top: 130px;
-          margin-left: auto;
-          h3, h1, p {
-
-          }
-        }
       }
     }
   }
