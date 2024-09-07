@@ -1,13 +1,37 @@
 :host {
+  .text {
+    .title{
+      font-size: 4em;
+    }
+    height: 100%;
+    p {
+      line-height: 1.5;
+      margin-bottom: 0px;
+    }
+  }
   #home {
-    height: 80vh;
+    padding-bottom: 30px;
   }
   .maintenance-message{
     font-size: 28px;
   }
+  .display_home {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (min-width: 1024px) {
+      justify-content: flex-end;
+    }
+  }
   video {
-    width: 500px;
-
-    margin: 0 auto;
+    width: 33vh;
+    height: auto;
+    @media (min-width: 768px) {
+      width: 320px;
+    }
+    @media (min-width: 1024px) {
+      width: auto;
+    }
   }
 }

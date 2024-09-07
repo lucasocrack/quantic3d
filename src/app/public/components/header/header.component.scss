@@ -1,5 +1,8 @@
 .space{
   height: 120px;
+  @media (max-width: 767px) {
+    height: 160px;
+  }
 }
 ::ng-deep {
     .header-area {
