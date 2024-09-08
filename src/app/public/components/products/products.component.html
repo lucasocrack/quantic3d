@@ -4,15 +4,14 @@
   [class.component-dark-theme]="themeService.isDark()"
   [class.rtl-enabled]="themeService.isRTLEnabled()"
 >
-
   <!-- Products -->
   <div class="row">
-    <div class="col-sm-6 col-lg-4">
+    <div class="col-sm-6 col-lg-4" *ngFor="let product of products">
       <mat-card class="daxa-card product-card text-center mb-25 border-radius p-0 bg-white border-none d-block">
         <mat-card-content>
           <div class="image position-relative border-radius">
-            <a routerLink="/ecommerce-page/product-details" class="d-block border-radius">
-              <img src="images/products/exemplo.jpeg" class="border-radius transition" alt="product-image">
+            <a [routerLink]="product.link" class="d-block border-radius">
+              <img [src]="product.image" class="border-radius transition" alt="product-image">
             </a>
             <button mat-fab>
               <i class="ri-heart-line"></i>
@@ -20,82 +19,10 @@
           </div>
           <div class="content">
             <h5>
-              <a routerLink="/ecommerce-page/product-details">
-                Luxury Rendering
+              <a [routerLink]="product.link">
+                {{ product.name }}
               </a>
             </h5>
-            <div class="price d-flex align-items-center justify-content-center lh-1">
-                              <span class="text-black fw-medium d-block">
-                                  R$ 650.00
-                              </span>
-              <span class="text-body d-block">
-                                  R$ 780.00
-                              </span>
-            </div>
-            <button mat-button>
-              Ver Detalhes
-            </button>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-      <mat-card class="daxa-card product-card text-center mb-25 border-radius p-0 bg-white border-none d-block">
-        <mat-card-content>
-          <div class="image position-relative border-radius">
-            <a routerLink="/ecommerce-page/product-details" class="d-block border-radius">
-              <img src="images/products/product2.jpg" class="border-radius transition" alt="product-image">
-            </a>
-            <button mat-fab>
-              <i class="ri-heart-line"></i>
-            </button>
-          </div>
-          <div class="content">
-            <h5>
-              <a routerLink="/ecommerce-page/product-details">
-                Mobile Device
-              </a>
-            </h5>
-            <div class="price d-flex align-items-center justify-content-center lh-1">
-                              <span class="text-black fw-medium d-block">
-                                  R$ 750.00
-                              </span>
-              <span class="text-body d-block">
-                                  R$ 780.00
-                              </span>
-            </div>
-            <button mat-button>
-              Ver Detalhes
-            </button>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-      <mat-card class="daxa-card product-card text-center mb-25 border-radius p-0 bg-white border-none d-block">
-        <mat-card-content>
-          <div class="image position-relative border-radius">
-            <a routerLink="/ecommerce-page/product-details" class="d-block border-radius">
-              <img src="images/products/product3.jpg" class="border-radius transition" alt="product-image">
-            </a>
-            <button mat-fab>
-              <i class="ri-heart-line"></i>
-            </button>
-          </div>
-          <div class="content">
-            <h5>
-              <a routerLink="/ecommerce-page/product-details">
-                Gaming Laptop
-              </a>
-            </h5>
-            <div class="price d-flex align-items-center justify-content-center lh-1">
-                              <span class="text-black fw-medium d-block">
-                                  R$ 750.00
-                              </span>
-              <span class="text-body d-block">
-                                  R$ 1200.00
-                              </span>
-            </div>
             <button mat-button>
               Ver Detalhes
             </button>
