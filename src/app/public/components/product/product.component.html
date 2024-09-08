@@ -1,9 +1,5 @@
-<!-- Products Grid -->
-<section
-  class="container"
-  [class.component-dark-theme]="themeService.isDark()"
-  [class.rtl-enabled]="themeService.isRTLEnabled()"
->
+<!-- Product Grid -->
+<section>
   <!-- Products -->
   <div class="row">
     <div class="col-sm-6 col-lg-4" *ngFor="let product of products">

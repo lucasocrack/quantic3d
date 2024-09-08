@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-products',
+  selector: 'app-product',
   standalone: true,
   imports: [
     CommonModule,
@@ -20,12 +20,12 @@ import { MatIconModule } from '@angular/material/icon';
     MatSliderModule,
     FormsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
   ],
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
 })
-export class ProductsComponent {
+export class ProductComponent {
   // Price
   startValue = 10;
   endValue = 4500;
@@ -36,27 +36,27 @@ export class ProductsComponent {
   products = [
     {
       name: 'Funkloud',
-      image: 'images/products/funkloud.jpg',
+      image: 'images/product/funkloud.jpg',
       link: '/ecommerce-page/product-details'
     },
     {
       name: 'Peter e Mary',
-      image: 'images/products/peter_e_mary.jpg',
+      image: 'images/product/peter_e_mary.jpg',
       link: '/ecommerce-page/product-details'
     },
     {
       name: 'Luffy Gear Five',
-      image: 'images/products/luffy_gear_five.jpg',
+      image: 'images/product/luffy_gear_five.jpg',
       link: '/ecommerce-page/product-details'
     },
     {
       name: 'Gigante esmeralda, o incrível Hulk',
-      image: 'images/products/incrivel_hulk.jpg',
+      image: 'images/product/incrivel_hulk.jpg',
       link: '/ecommerce-page/product-details'
     },
     {
       name: 'Tifa Lockhart Final Fantasy VII',
-      image: 'images/products/tifa_lockhart.jpg',
+      image: 'images/product/tifa_lockhart.jpg',
       link: '/ecommerce-page/product-details'
     }
   ];
