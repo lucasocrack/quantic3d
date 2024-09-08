@@ -7,11 +7,12 @@ import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [RouterLink, MatCardModule, MatCheckboxModule, MatSliderModule, FormsModule, MatButtonModule, MatIconModule],
+  imports: [RouterLink, MatCardModule, MatCheckboxModule, MatSliderModule, FormsModule, MatButtonModule, MatIconModule, NgForOf],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
@@ -22,6 +23,34 @@ export class ProductsComponent {
 
   // isToggled
   isToggled = false;
+
+  products = [
+    {
+      name: 'Funkloud',
+      image: 'images/product/funkloud.jpg',
+      link: '/ecommerce-page/product-details'
+    },
+    {
+      name: 'Peter e Mary',
+      image: 'images/product/peter_e_mary.jpg',
+      link: '/ecommerce-page/product-details'
+    },
+    {
+      name: 'Luffy Gear Five',
+      image: 'images/product/luffy_gear_five.jpg',
+      link: '/ecommerce-page/product-details'
+    },
+    {
+      name: 'Gigante esmeralda, o incrível Hulk',
+      image: 'images/product/incrivel_hulk.jpg',
+      link: '/ecommerce-page/product-details'
+    },
+    {
+      name: 'Tifa Lockhart Final Fantasy VII',
+      image: 'images/product/tifa_lockhart.jpg',
+      link: '/ecommerce-page/product-details'
+    }
+  ];
 
   constructor(
     public themeService: CustomizerSettingsService
